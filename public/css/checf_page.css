@@ -1,0 +1,8 @@
+.bg-images {
+    background-image: url("{{asset('/img/05.png')}}"),
+    url("{{asset('/img/06.png')}}");
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: center center;
+    padding: 100px 0;
+}
