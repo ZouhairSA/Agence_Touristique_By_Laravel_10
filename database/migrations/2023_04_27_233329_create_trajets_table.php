@@ -24,12 +24,13 @@ return new class extends Migration
             $table->timestamps();
         });
 
-        DB::unprepared('CREATE TRIGGER `trajet_before_insert` BEFORE INSERT ON `Trajet` FOR EACH ROW
-            BEGIN
-                SET NEW.nom_ville = (SELECT nom FROM villes WHERE id = NEW.id_ville);
-                SET NEW.nom_voyage = (SELECT nom FROM voyages WHERE id = NEW.id_voyage);
-            END');
-    }
+        DB::unprepared('CREATE TRIGGER `trajet_before_insert` BEFORE INSERT ON `trajets` FOR EACH ROW
+        BEGIN
+            SET NEW.nom_ville = (SELECT nom FROM villes WHERE id = NEW.id_ville);
+            SET NEW.nom_voyage = (SELECT nom FROM voyages WHERE id = NEW.id_voyage);
+        END
+        ');
+            }
 
     /**
      * Reverse the migrations.

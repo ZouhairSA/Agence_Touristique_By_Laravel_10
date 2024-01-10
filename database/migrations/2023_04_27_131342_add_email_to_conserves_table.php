@@ -11,18 +11,24 @@ return new class extends Migration
      */
     public function up(): void
     {
+        // Schema::table('conserves', function (Blueprint $table) {
+        //     $table->string('email')->nullable();
+        // });
         Schema::table('conserves', function (Blueprint $table) {
-            $table->string('email')->nullable();
+            // Supprimer ou renommer la colonne si nécessaire
+            $table->dropColumn('email');
+            // ou
+            // $table->renameColumn('email', 'nouveau_email');
         });
     }
 
     /**
      * Reverse the migrations.
      */
-    public function down(): void
-    {
-        Schema::table('conserves', function (Blueprint $table) {
-            //
-        });
-    }
+    public function down()
+{
+    Schema::table('conserves', function (Blueprint $table) {
+        $table->dropColumn('email');
+    });
+}
 };
